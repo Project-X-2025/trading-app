@@ -14,8 +14,184 @@
   }
 }
 
+html {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@-webkit-keyframes ticker-move {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker-move {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.27861;
+  }
+
+  5% {
+    opacity: 0.34769;
+  }
+
+  10% {
+    opacity: 0.23604;
+  }
+
+  15% {
+    opacity: 0.90626;
+  }
+
+  20% {
+    opacity: 0.18128;
+  }
+
+  25% {
+    opacity: 0.83891;
+  }
+
+  30% {
+    opacity: 0.65583;
+  }
+
+  35% {
+    opacity: 0.67807;
+  }
+
+  40% {
+    opacity: 0.26559;
+  }
+
+  45% {
+    opacity: 0.84693;
+  }
+
+  50% {
+    opacity: 0.96019;
+  }
+
+  55% {
+    opacity: 0.08594;
+  }
+
+  60% {
+    opacity: 0.20313;
+  }
+
+  65% {
+    opacity: 0.71988;
+  }
+
+  70% {
+    opacity: 0.53455;
+  }
+
+  75% {
+    opacity: 0.37288;
+  }
+
+  80% {
+    opacity: 0.71428;
+  }
+
+  85% {
+    opacity: 0.70419;
+  }
+
+  90% {
+    opacity: 0.7003;
+  }
+
+  95% {
+    opacity: 0.36108;
+  }
+
+  100% {
+    opacity: 0.24387;
+  }
+}
+
+.ticker-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 40px;
+}
+
+.ticker-move {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  perspective: 1000;
+  -webkit-perspective: 1000;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.ticker-move,
+.ticker-wrap {
+  display: inline-block;
+  /* height: 4rem; */
+  line-height: 4rem;
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker-move;
+  animation-name: ticker-move;
+  -webkit-animation-duration: 1800s;
+  animation-duration: 1800s;
+}
+
+.ticker-move,
+.ticker-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.scanlines {
+  background: linear-gradient(to bottom,
+      transparent 50%,
+      var(--scan-color) 51%);
+  background-size: 100% 4px;
+  animation: scanline 10s linear infinite;
+}
+
+.screen-flicker {
+  opacity: .15;
+  /* background: rgba(0, 255, 0, .2); */
+  z-index: 1;
+  animation: flicker .15s infinite;
 }
