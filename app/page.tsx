@@ -1,10 +1,7 @@
 // import Image from "next/image";
 
-import InformationCrypto from "@/components/InformationCrypto";
-import MainCrypto from "@/components/MainCrypto";
-import StatsCrypto from "@/components/StatsCrypto";
+import HomeComponent from "@/components/Home";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
-import TickerCrypto from "@/components/TickerCrypto";
 
 export default function Home() {
   return (
@@ -55,13 +52,7 @@ export default function Home() {
       </div>
 
       <main className="min-h-screen bg-black p-4 sm:p-8 relative flex flex-col">
-        <TickerCrypto />
-
-        <InformationCrypto />
-
-        <MainCrypto />
-        
-        <StatsCrypto />
+        <HomeComponent />
       </main>
     </>
   );

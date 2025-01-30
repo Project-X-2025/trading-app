@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter } from 'next/font/google'
+
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
 
 // Configure Inter font
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap", // Ensures fast loading
-});
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter' // Optional: for use with Tailwind CSS
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
